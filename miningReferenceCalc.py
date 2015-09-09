@@ -6,7 +6,7 @@ refTechData = [50.0 * 12 / 1000.0, 0.5 * 1e6, 0.1 * 1e6 , 1.03, 0.99999, 8.0* 1e
 refMktData = [250, 1312500, 10*365, 400, 3] # BTC Price ($), Annual supply, Annual fees, Initial hashrate (PHa), Amortization (years)
 
 def calcHashrates(refTechData, refMktData) : 
-    """ Calculate.s hCAP, hSTAR, hBE_U/L, T """
+    """ Calculates hCAP, hSTAR, hBE_U/L, T """
     clc, inv, poww, pue, utz, nre = refTechData[:]
     btc, sup, fee, h0, amz = refMktData[:]
     hCAP = btc * (sup + fee) / (clc * poww * pue / utz)
