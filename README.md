@@ -5,7 +5,7 @@ Content provided under a Creative Commons Attribution-NonCommercial-ShareAlike (
 
 # Acknowledgements
 
-Thanks to Agust Valfells, Sigurdur Johannesson and Stephen Harrington.
+Thanks to Agust Valfells, Sigurdur Johannesson and Stephen Harrington. Plots made with http://matplotlib.org
 
 # Where to start?
 
