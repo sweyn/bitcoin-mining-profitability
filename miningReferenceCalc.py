@@ -9,11 +9,11 @@ def calcHashrates(refTechData, refMktData) :
     """ Calculates hCAP, hSTAR, hBE_U/L, T """
     clc, inv, poww, pue, utz, nre = refTechData[:]
     btc, sup, fee, h0, amz = refMktData[:]
-    hCAP = btc * (sup + fee) / (clc * poww * pue / utz)
-    hSTAR = sqrt( h0 * btc * (sup + fee) / ( (clc * poww * pue / utz ) + inv/amz) )
-    c = clc * poww * pue / utz 
+    hCAP = btc * utz * (sup + fee) / (clc * poww * pue )
+    hSTAR = sqrt( h0 * btc * utz * (sup + fee) / ( (clc * poww * pue ) + inv/amz) )
+    c = clc * poww * pue  
     aa = c + inv / amz
-    bb = - ( btc * (sup + fee) - h0 * c - inv/amz * h0 - nre/amz) 
+    bb = - ( btc * utz * (sup + fee) - h0 * c - inv/amz * h0 - nre/amz) 
     cc = h0 * nre / amz
     if (bb*bb - 4 * aa * cc) >= 0 :
         hBE_plus = h0 +  ( - bb + sqrt(bb*bb - 4 * aa * cc) ) * 0.5 / aa
@@ -30,11 +30,11 @@ def calcImpliedT(refTechData, refMktData):
     """ Calculates implied T """
     clc, inv, poww, pue, utz, nre = refTechData[:]
     btc, sup, fee, h0, amz = refMktData[:]
-    c = clc * poww * pue / utz 
+    c = clc * poww * pue 
 
     aa = (h0 * inv + nre)**2 - 4 * h0 * nre * inv
-    bb = - ( 2.0 * (btc * (sup + fee) - h0 * c) * (h0 * inv + nre) + 4.0 * h0 * c * nre)
-    cc = ( btc * (sup + fee)  - h0 * c)**2
+    bb = - ( 2.0 * (btc * utz * (sup + fee) - h0 * c) * (h0 * inv + nre) + 4.0 * h0 * c * nre)
+    cc = ( btc * utz * (sup + fee)  - h0 * c)**2
 
     # using numpy
     # coeff = [1.0, bb / aa, cc / aa]
