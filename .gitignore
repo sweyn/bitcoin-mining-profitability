@@ -1,3 +1,42 @@
+
+# System #
+##########
+
 *~
-.ipynb_checkpoints/*
+
+# LaTeX intermediary files #
+############################
+*.acn
+*.acr
+*.alg
+*.aux
+*.bcf
+*.bbl
+*blx.bib
+*.blg
+*.glg
+*.glo
+*.gls
+*.glsdefs
+*.gz
+*.synctex.gz
 *.log
+*.out
+*.nav
+*.snm
+*.toc
+*.vrb
+*.xdy
+*.xml
+*.xwm
+
+# Ignore PDF files #
+# (except copies for distribution) #
+####################################
+*.pdf
+
+# Ignore python bytecode #
+##########################
+*.pyc
+
+
