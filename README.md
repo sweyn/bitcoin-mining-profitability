@@ -1,7 +1,7 @@
 
 # Overview
 
-This repository contains the code used to model Bitcoin mining profitability as described in "Minting Money With Megawatts", an article which appeared as a cover feature on Proceedings of the IEEE | Vol. 104, No. 9, September 2016. 
+This repository contains the code used to model Bitcoin mining profitability as described in "Minting Money With Megawatts", an article which appeared as a cover feature of the Proceedings of the IEEE | Vol. 104, No. 9, September 2016. 
 
 # Where to start?
 
