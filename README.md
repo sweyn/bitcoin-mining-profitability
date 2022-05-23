@@ -3,6 +3,8 @@
 
 This repository contains the code used to model Bitcoin mining profitability as described in "Minting Money With Megawatts", an article which appeared as a cover feature of the Proceedings of the IEEE | Vol. 104, No. 9, September 2016. 
 
+![Bitcoin mining profit function](plots/economics-notebook.png)
+
 # Where to start?
 
 Start with the notebook MiningProfitability.ipynb at:
