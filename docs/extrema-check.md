@@ -61,7 +61,7 @@ Reference market data:
 
 | Parameter | Value |
 |-----------|-------|
-| B | \$80,000/BTC |
+| B | \$78,000/BTC (~\$77,900 per CoinGecko/CoinMarketCap May 16 2026) |
 | S | 164,250 BTC/yr (3.125 BTC/block × 52,560 blocks/yr) |
 | F | 1,095 BTC/yr (~3 BTC/day, on-chain data May 2026) |
 | $h_0$ | 960,000 PHa (= 960 EH/s, midpoint of 935–994 EH/s per CoinWarz/Minerstat May 2026) |
@@ -73,16 +73,16 @@ Derived composite values:
 |--------|-------|
 | C | 9,270 \$/PHa/yr |
 | D | 15,936.67 \$/PHa/yr |
-| R | 13,227,467,724 \$/yr |
+| R | 12,896,781,031 \$/yr |
 
 Cross-check results:
 
 | Quantity | Analytical | Repo code | Match |
 |----------|-----------|-----------|-------|
-| $h^*$ | 892,637.7046 PHa | 892,637.7046 PHa | ✓ |
-| $h_{CAP}$ | 1,426,911.2971 PHa | 1,426,911.2971 PHa | ✓ |
-| $h_{BE}^{Upper}$ | 958,753.9799 PHa (< $h_0$) | NaN | ✓ |
-| $h_{BE}^{Lower}$ | 831,080.8490 PHa (< $h_0$) | NaN | ✓ |
+| $h^*$ | 881,409.1104 PHa | 881,409.1104 PHa | ✓ |
+| $h_{CAP}$ | 1,391,238.5147 PHa | 1,391,238.5147 PHa | ✓ |
+| $h_{BE}^{Upper}$ | 958,927.9737 PHa (< $h_0$) | NaN | ✓ |
+| $h_{BE}^{Lower}$ | 810,156.8013 PHa (< $h_0$) | NaN | ✓ |
 
 Both breakeven hashrates fall below the current network hashrate $h_0 = 960{,}000$ PHa, so the code correctly returns NaN — no additional deployment is profitable at these market conditions. Since $h^* < h_0$, the optimal incremental deployment is $X = 0$.
 
