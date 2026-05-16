@@ -44,15 +44,15 @@ $$D \cdot X^2 - \bigl(R - h_0 D - NRE/T\bigr) X + h_0 \cdot NRE/T = 0$$
 
 $$h_{BE}^{Upper/Lower} = h_0 + \frac{(R - h_0 D - NRE/T) \pm \sqrt{(R - h_0 D - NRE/T)^2 - 4D \cdot h_0 \cdot NRE/T}}{2D}$$
 
-## Numerical verification (reference parameters)
+## Numerical verification (reference parameters — May 2026)
 
-Reference technology data:
+Reference technology data (modern ASIC hardware):
 
 | Parameter | Value |
 |-----------|-------|
 | CLC | 50 \$/kW/mo → 0.6 \$/W/yr |
-| INV | 0.5M \$/PHa |
-| POW | 0.1 MW/PHa |
+| INV | 20,000 \$/PHa (~\$20/TH, e.g. Bitmain S21 Pro) |
+| POW | 15,000 W/PHa (~15 J/TH, e.g. Bitmain S21 Pro) |
 | PUE | 1.03 |
 | UTZ | 0.99999 |
 | NRE | \$8M |
@@ -61,36 +61,35 @@ Reference market data:
 
 | Parameter | Value |
 |-----------|-------|
-| B | \$250/BTC |
-| S | 1,312,500 BTC/yr |
-| F | 3,650 BTC/yr |
-| $h_0$ | 400 PHa |
+| B | \$80,000/BTC |
+| S | 164,250 BTC/yr (3.125 BTC/block × 52,560 blocks/yr) |
+| F | 29,200 BTC/yr (~80 BTC/day) |
+| $h_0$ | 1,000,000 PHa (= 1,000 EH/s) |
 | T | 3 yr |
 
 Derived composite values:
 
 | Symbol | Value |
 |--------|-------|
-| C | 61,800 \$/PHa/yr |
-| D | 228,466.67 \$/PHa/yr |
-| R | 329,034,209.62 \$/yr |
+| C | 9,270 \$/PHa/yr |
+| D | 15,936.67 \$/PHa/yr |
+| R | 15,475,845,240 \$/yr |
 
 Cross-check results:
 
 | Quantity | Analytical | Repo code | Match |
 |----------|-----------|-----------|-------|
-| $h^*$ | 758.99532325 PHa | 758.99532325 PHa | ✓ |
-| $h_{CAP}$ | 5324.17814927 PHa | 5324.17814927 PHa | ✓ |
-| $h_{BE}^{Upper}$ | 1423.95314543 PHa | 1423.95314543 PHa | ✓ |
-| $h_{BE}^{Lower}$ | 404.55959001 PHa | 404.55959001 PHa | ✓ |
+| $h^*$ | 985,436.0469 PHa | 985,436.0469 PHa | ✓ |
+| $h_{CAP}$ | 1,669,454.7184 PHa | 1,669,454.7184 PHa | ✓ |
+| $h_{BE}^{Upper}$ | 992,101.3316 PHa (< $h_0$) | NaN | ✓ |
+| $h_{BE}^{Lower}$ | 978,815.5419 PHa (< $h_0$) | NaN | ✓ |
+
+Both breakeven hashrates fall below the current network hashrate $h_0 = 1{,}000{,}000$ PHa, so the code correctly returns NaN — no additional deployment is profitable at these market conditions. Since $h^* < h_0$, the optimal incremental deployment is $X = 0$.
 
 Profit at key points:
 
 | Point | $\pi$ (\$/yr) |
 |-------|--------------|
-| $X = X^*$ (maximum) | 70,943,946.59 |
-| $X = X_{BE}^{Upper}$ | ≈ 0 |
-| $X = X_{BE}^{Lower}$ | ≈ 0 |
 | $X = 0$ (no capacity added) | −2,666,666.67 |
 
 All formulas in the repository are consistent with the analytical derivation.
