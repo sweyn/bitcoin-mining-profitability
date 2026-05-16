@@ -1,7 +1,7 @@
 from math import sqrt
 import numpy as np
 
-refTechData = [40.0 * 12 / 1000.0, 18000, 13500, 1.10, 0.99999, 8.5*1e6] # CLC ($/kW/m, $40/kW/mo = $0.055/kWh competitive industrial rate per OneMiners/D-Central May 2026), INV ($/PHa, ~$18/TH Bitmain S21 XP per HashrateIndex May 2026), POW (W/PHa, 13.5 J/TH Bitmain S21 XP), PUE (1.10, efficient air-cooled facility; industry avg 1.18, immersion 1.02-1.06 per CCAF/CoinShares Q1 2026), UTZ (dimensionless), NRE ($ midpoint of $700K-$1M/MW x 10 MW reference facility per CoinShares Q1 2026)
+refTechData = [40.0 * 12 / 1000.0, 18000, 13500, 1.10, 0.95, 8.5*1e6] # CLC ($/kW/m, $40/kW/mo = $0.055/kWh competitive industrial rate per OneMiners/D-Central May 2026), INV ($/PHa, ~$18/TH Bitmain S21 XP per HashrateIndex May 2026), POW (W/PHa, 13.5 J/TH Bitmain S21 XP), PUE (1.10, efficient air-cooled facility; industry avg 1.18, immersion 1.02-1.06 per CCAF/CoinShares Q1 2026), UTZ (0.95, industry median 90-94% with curtailment; well-run modern facility 95-98% per CoinShares/HashrateIndex Q1 2026), NRE ($ midpoint of $700K-$1M/MW x 10 MW reference facility per CoinShares Q1 2026)
 
 refMktData = [78000, 164250, 3*365, 960000, 3] # BTC Price ($, ~$77,900 per CoinGecko/CoinMarketCap May 16 2026), Annual supply (BTC/yr at 3.125 BTC/block), Annual fees (BTC/yr, ~3 BTC/day on-chain May 2026), Network hashrate (PHa, 935-994 EH/s per CoinWarz/Minerstat May 2026), Amortization (years, 3yr confirmed as standard by Riot/Marathon/Cipher 2025-2026 filings per CoinShares Q1 2026)
 

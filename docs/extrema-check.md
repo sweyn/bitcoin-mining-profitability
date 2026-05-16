@@ -55,7 +55,7 @@ Reference technology data (modern ASIC hardware):
 | INV | 18,000 \$/PHa (~\$18/TH, Bitmain S21 XP per HashrateIndex May 2026) |
 | POW | 13,500 W/PHa (13.5 J/TH, Bitmain S21 XP) |
 | PUE | 1.03 |
-| UTZ | 0.99999 |
+| UTZ | 0.95 (industry median 90–94% with curtailment; well-run modern facility 95–98% per CoinShares/HashrateIndex Q1 2026) |
 | NRE | \$8.5M (midpoint of \$700K–\$1M/MW × 10 MW reference facility per CoinShares Q1 2026) |
 
 Reference market data:
@@ -74,26 +74,23 @@ Derived composite values:
 |--------|-------|
 | C | 7,128 \$/PHa/yr |
 | D | 13,128 \$/PHa/yr |
-| R | 12,896,781,031 \$/yr |
+| R | 12,252,064,500 \$/yr |
 
 Cross-check results:
 
 | Quantity | Analytical | Repo code | Match |
 |----------|-----------|-----------|-------|
-| $h^*$ | 971,129.1617 PHa | 971,129.1617 PHa | ✓ |
-| $h_{CAP}$ | 1,809,312.7148 PHa | 1,809,312.7148 PHa | ✓ |
+| $h^*$ | 946,544.3549 PHa | 946,544.3549 PHa | ✓ |
+| $h_{CAP}$ | 1,718,864.2677 PHa | 1,718,864.2677 PHa | ✓ |
 | $h_{BE}^{Upper}$ | NaN (disc < 0) | NaN | ✓ |
 | $h_{BE}^{Lower}$ | NaN (disc < 0) | NaN | ✓ |
 
-Although $h^* = 971{,}129$ PHa $> h_0 = 960{,}000$ PHa, the profit at $X^*$ is negative ($-1{,}139{,}572$/yr), so the profit parabola never crosses zero. The discriminant of the breakeven quadratic is negative and the code correctly returns NaN for both breakeven hashrates. The least-loss strategy is to deploy $X^* \approx 11{,}129$ PHa of additional capacity; not deploying ($X = 0$) is worse.
-
-This reflects a key finding: at PUE = 1.10 (air-cooled) and current market conditions, even the optimal deployment is unprofitable. Only facilities achieving immersion-cooled PUE ($\approx$ 1.03) can break even with these hardware and electricity parameters.
+With UTZ = 0.95, $h^* = 946{,}544$ PHa $< h_0 = 960{,}000$ PHa, so the optimal incremental deployment is $X = 0$. The discriminant is negative (profit is always negative for all $X \geq 0$) and the code correctly returns NaN for both breakeven hashrates.
 
 Profit at key points:
 
 | Point | $\pi$ (\$/yr) |
 |-------|--------------|
-| $X = X^*$ (minimum loss, +11,129 PHa) | −1,139,572 |
 | $X = 0$ (no capacity added) | −2,833,333 |
 
 All formulas in the repository are consistent with the analytical derivation.

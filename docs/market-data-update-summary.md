@@ -26,7 +26,7 @@ The reference parameters in `miningReferenceCalc.py` and `MiningProfitability.ip
 
 | Amortization (T) | 3 yr | 3 yr | Confirmed as industry standard ASIC useful life by Riot Platforms, Marathon Digital, and Cipher Digital per CoinShares Q1 2026; value unchanged |
 
-UTZ was left unchanged as a site-specific parameter.
+| UTZ (utilization) | 0.99999 | 0.95 | Industry median 90–94% with curtailment; well-run modern facility 95–98% per CoinShares/HashrateIndex Q1 2026; Riot Platforms Q1 2025 ran at 87–88% |
 
 ## Derived composite values
 
@@ -40,15 +40,15 @@ UTZ was left unchanged as a site-specific parameter.
 
 | Quantity | 2016 result | May 2026 result |
 |----------|------------|-----------------|
-| h* (optimal total hashrate) | 759 PHa | 971,129 PHa (971 EH/s) |
-| h_CAP (opex breakeven) | 5,324 PHa | 1,809,313 PHa (1,809 EH/s) |
+| h* (optimal total hashrate) | 759 PHa | 946,544 PHa (947 EH/s) |
+| h_CAP (opex breakeven) | 5,324 PHa | 1,718,864 PHa (1,719 EH/s) |
 | h_BE Upper | 1,424 PHa | NaN (profit always negative) |
 | h_BE Lower | 405 PHa | NaN (profit always negative) |
 
 ## Key finding
 
-With current parameters (PUE = 1.10, air-cooled), h* ≈ 971 EH/s > h₀ = 960 EH/s, but the profit at the optimum is −$1.14M/yr — still negative. The profit parabola never crosses zero, so no deployment size is profitable. This means:
+With current parameters, h* ≈ 947 EH/s < h₀ = 960 EH/s and the profit parabola never crosses zero — no deployment size is profitable. This means:
 
-- The least-loss strategy is X* ≈ 11,129 PHa (≈ 11 EH/s) of additional capacity, losing ~$1.14M/yr vs −$2.83M/yr at X = 0.
-- At the previous PUE of 1.03 (immersion-cooled), a profitable window existed; the step from 1.03 → 1.10 closes it entirely at current BTC prices and hashrate.
-- **Electricity cost and PUE are jointly the key swing variables.** Operations achieving immersion-cooled PUE (≈ 1.02–1.06) alongside competitive power rates (~$0.04–0.05/kWh) can still be profitable; air-cooled facilities at $0.055/kWh are currently at a loss — consistent with industry reports of hashprice at all-time lows in early 2026.
+- The optimal strategy is X = 0 (no new capacity); profit = −$2.83M/yr from fixed NRE costs.
+- UTZ = 0.95 reflects realistic curtailment and downtime: Riot Platforms ran at 87–88% in Q1 2025; industry median is 90–94%. The previous 0.99999 was unachievable in practice.
+- **Electricity cost, PUE, and utilization are jointly the key swing variables.** Operations combining immersion-cooled PUE (≈ 1.02–1.06), sub-$0.05/kWh power, and minimal curtailment (UTZ ≥ 0.97) can still be profitable; air-cooled operations at $0.055/kWh with realistic 95% uptime are currently at a loss — consistent with industry reports of hashprice at all-time lows in early 2026.
