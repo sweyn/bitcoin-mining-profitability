@@ -22,7 +22,9 @@ The reference parameters in `miningReferenceCalc.py` and `MiningProfitability.ip
 | CLC (electricity) | 50 \$/kW/mo (0.068 \$/kWh) | 40 \$/kW/mo (0.055 \$/kWh) | Competitive industrial rate per OneMiners/D-Central May 2026; profitable threshold is ~\$0.04–0.06/kWh |
 | PUE | 1.03 | 1.10 | Efficient air-cooled facility; industry avg 1.18, immersion cooling 1.02–1.06 per CCAF/CoinShares Q1 2026 |
 
-UTZ and NRE were left unchanged as site-specific or fixed costs.
+| NRE (facility setup) | \$8M | \$8.5M | Midpoint of \$700K–\$1M/MW × 10 MW reference facility per CoinShares Q1 2026; 10 MW ≈ 741 PHa at 13.5 J/TH |
+
+UTZ was left unchanged as a site-specific parameter.
 
 ## Derived composite values
 
@@ -43,8 +45,8 @@ UTZ and NRE were left unchanged as site-specific or fixed costs.
 
 ## Key finding
 
-With current parameters (PUE = 1.10, air-cooled), h* ≈ 971 EH/s > h₀ = 960 EH/s, but the profit at the optimum is −$973K/yr — still negative. The profit parabola never crosses zero, so no deployment size is profitable. This means:
+With current parameters (PUE = 1.10, air-cooled), h* ≈ 971 EH/s > h₀ = 960 EH/s, but the profit at the optimum is −$1.14M/yr — still negative. The profit parabola never crosses zero, so no deployment size is profitable. This means:
 
-- The least-loss strategy is X* ≈ 11,129 PHa (≈ 11 EH/s) of additional capacity, losing ~$973K/yr vs −$2.67M/yr at X = 0.
+- The least-loss strategy is X* ≈ 11,129 PHa (≈ 11 EH/s) of additional capacity, losing ~$1.14M/yr vs −$2.83M/yr at X = 0.
 - At the previous PUE of 1.03 (immersion-cooled), a profitable window existed; the step from 1.03 → 1.10 closes it entirely at current BTC prices and hashrate.
 - **Electricity cost and PUE are jointly the key swing variables.** Operations achieving immersion-cooled PUE (≈ 1.02–1.06) alongside competitive power rates (~$0.04–0.05/kWh) can still be profitable; air-cooled facilities at $0.055/kWh are currently at a loss — consistent with industry reports of hashprice at all-time lows in early 2026.

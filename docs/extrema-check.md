@@ -56,7 +56,7 @@ Reference technology data (modern ASIC hardware):
 | POW | 13,500 W/PHa (13.5 J/TH, Bitmain S21 XP) |
 | PUE | 1.03 |
 | UTZ | 0.99999 |
-| NRE | \$8M |
+| NRE | \$8.5M (midpoint of \$700K–\$1M/MW × 10 MW reference facility per CoinShares Q1 2026) |
 
 Reference market data:
 
@@ -85,7 +85,7 @@ Cross-check results:
 | $h_{BE}^{Upper}$ | NaN (disc < 0) | NaN | ✓ |
 | $h_{BE}^{Lower}$ | NaN (disc < 0) | NaN | ✓ |
 
-Although $h^* = 971{,}129$ PHa $> h_0 = 960{,}000$ PHa, the profit at $X^*$ is negative ($-972{,}906$/yr), so the profit parabola never crosses zero. The discriminant of the breakeven quadratic is negative and the code correctly returns NaN for both breakeven hashrates. The least-loss strategy is to deploy $X^* \approx 11{,}129$ PHa of additional capacity; not deploying ($X = 0$) is worse.
+Although $h^* = 971{,}129$ PHa $> h_0 = 960{,}000$ PHa, the profit at $X^*$ is negative ($-1{,}139{,}572$/yr), so the profit parabola never crosses zero. The discriminant of the breakeven quadratic is negative and the code correctly returns NaN for both breakeven hashrates. The least-loss strategy is to deploy $X^* \approx 11{,}129$ PHa of additional capacity; not deploying ($X = 0$) is worse.
 
 This reflects a key finding: at PUE = 1.10 (air-cooled) and current market conditions, even the optimal deployment is unprofitable. Only facilities achieving immersion-cooled PUE ($\approx$ 1.03) can break even with these hardware and electricity parameters.
 
@@ -93,7 +93,7 @@ Profit at key points:
 
 | Point | $\pi$ (\$/yr) |
 |-------|--------------|
-| $X = X^*$ (minimum loss, +11,129 PHa) | −972,906 |
-| $X = 0$ (no capacity added) | −2,666,667 |
+| $X = X^*$ (minimum loss, +11,129 PHa) | −1,139,572 |
+| $X = 0$ (no capacity added) | −2,833,333 |
 
 All formulas in the repository are consistent with the analytical derivation.
