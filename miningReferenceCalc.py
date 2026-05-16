@@ -51,5 +51,5 @@ def calcImpliedT(refTechData, refMktData):
 hCAP, hSTAR, hBE_upper, hBE_lower = calcHashrates(refTechData, refMktData) 
 impliedT = calcImpliedT(refTechData, refMktData)
 
-print hCAP, hBE_upper, hSTAR, hBE_lower
-print impliedT
+print(hCAP, hBE_upper, hSTAR, hBE_lower)
+print(impliedT)
