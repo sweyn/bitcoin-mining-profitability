@@ -51,8 +51,8 @@ Reference technology data (modern ASIC hardware):
 | Parameter | Value |
 |-----------|-------|
 | CLC | 50 \$/kW/mo → 0.6 \$/W/yr |
-| INV | 20,000 \$/PHa (~\$20/TH, e.g. Bitmain S21 Pro) |
-| POW | 15,000 W/PHa (~15 J/TH, e.g. Bitmain S21 Pro) |
+| INV | 18,000 \$/PHa (~\$18/TH, Bitmain S21 XP per HashrateIndex May 2026) |
+| POW | 13,500 W/PHa (13.5 J/TH, Bitmain S21 XP) |
 | PUE | 1.03 |
 | UTZ | 0.99999 |
 | NRE | \$8M |
@@ -71,18 +71,18 @@ Derived composite values:
 
 | Symbol | Value |
 |--------|-------|
-| C | 9,270 \$/PHa/yr |
-| D | 15,936.67 \$/PHa/yr |
+| C | 8,343 \$/PHa/yr |
+| D | 14,343 \$/PHa/yr |
 | R | 12,896,781,031 \$/yr |
 
 Cross-check results:
 
 | Quantity | Analytical | Repo code | Match |
 |----------|-----------|-----------|-------|
-| $h^*$ | 881,409.1104 PHa | 881,409.1104 PHa | ✓ |
-| $h_{CAP}$ | 1,391,238.5147 PHa | 1,391,238.5147 PHa | ✓ |
-| $h_{BE}^{Upper}$ | 958,927.9737 PHa (< $h_0$) | NaN | ✓ |
-| $h_{BE}^{Lower}$ | 810,156.8013 PHa (< $h_0$) | NaN | ✓ |
+| $h^*$ | 929,086.7797 PHa | 929,086.7797 PHa | ✓ |
+| $h_{CAP}$ | 1,545,820.5718 PHa | 1,545,820.5718 PHa | ✓ |
+| $h_{BE}^{Upper}$ | 956,919.2968 PHa (< $h_0$) | NaN | ✓ |
+| $h_{BE}^{Lower}$ | 902,063.7865 PHa (< $h_0$) | NaN | ✓ |
 
 Both breakeven hashrates fall below the current network hashrate $h_0 = 960{,}000$ PHa, so the code correctly returns NaN — no additional deployment is profitable at these market conditions. Since $h^* < h_0$, the optimal incremental deployment is $X = 0$.
 

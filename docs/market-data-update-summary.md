@@ -17,8 +17,8 @@ The reference parameters in `miningReferenceCalc.py` and `MiningProfitability.ip
 
 | Parameter | 2016 value | May 2026 value | Reason |
 |-----------|-----------|----------------|--------|
-| INV (hardware cost) | 500,000 \$/PHa (~\$500/TH) | 20,000 \$/PHa (~\$20/TH) | Modern ASICs (e.g. Bitmain S21 Pro) are ~25× cheaper per unit hashrate |
-| POW (power draw) | 100,000 W/PHa (100 J/TH) | 15,000 W/PHa (15 J/TH) | Modern ASICs are ~6.7× more energy-efficient |
+| INV (hardware cost) | 500,000 \$/PHa (~\$500/TH) | 18,000 \$/PHa (~\$18/TH) | Bitmain S21 XP per HashrateIndex May 2026; ~28× cheaper per unit hashrate |
+| POW (power draw) | 100,000 W/PHa (100 J/TH) | 13,500 W/PHa (13.5 J/TH) | Bitmain S21 XP; ~7.4× more energy-efficient |
 
 CLC, PUE, UTZ, and NRE were left unchanged as site-specific or fixed costs.
 
@@ -26,22 +26,22 @@ CLC, PUE, UTZ, and NRE were left unchanged as site-specific or fixed costs.
 
 | Symbol | 2016 | May 2026 |
 |--------|------|----------|
-| C (opex/PHa/yr) | 61,800 \$/PHa/yr | 9,270 \$/PHa/yr |
-| D (total cost/PHa/yr) | 228,467 \$/PHa/yr | 15,937 \$/PHa/yr |
+| C (opex/PHa/yr) | 61,800 \$/PHa/yr | 8,343 \$/PHa/yr |
+| D (total cost/PHa/yr) | 228,467 \$/PHa/yr | 14,343 \$/PHa/yr |
 | R (total market revenue/yr) | 329 M\$/yr | 12.9 B\$/yr |
 
 ## Model output with updated parameters
 
 | Quantity | 2016 result | May 2026 result |
 |----------|------------|-----------------|
-| h* (optimal total hashrate) | 759 PHa | 881,409 PHa (881 EH/s) |
-| h_CAP (opex breakeven) | 5,324 PHa | 1,391,239 PHa (1,391 EH/s) |
+| h* (optimal total hashrate) | 759 PHa | 929,087 PHa (929 EH/s) |
+| h_CAP (opex breakeven) | 5,324 PHa | 1,545,821 PHa (1,546 EH/s) |
 | h_BE Upper | 1,424 PHa | NaN (below h₀) |
 | h_BE Lower | 405 PHa | NaN (below h₀) |
 
 ## Key finding
 
-With current parameters, the analytical optimum h* ≈ 881 EH/s falls below the current network hashrate h₀ = 960 EH/s. This means:
+With current parameters, the analytical optimum h* ≈ 929 EH/s falls below the current network hashrate h₀ = 960 EH/s. This means:
 
 - The breakeven hashrates both lie below h₀, so the code correctly returns NaN for both — no incremental deployment is profitable.
 - The optimal strategy for a marginal miner is X = 0 (no new capacity), yielding π = −$2.67M/yr from fixed NRE costs alone.
