@@ -17,7 +17,7 @@ https://github.com/sweyn/bitcoin-mining-profitability/blob/master/MiningProfitab
 
 # Administrative
 
-Content provided under a Creative Commons Attribution-NonCommercial-ShareAlike (CC BY-NC-SA) (c)2013-2022, Sveinn Valfells and Jon Helgi Egilsson. 
+Content provided under a Creative Commons Attribution-NonCommercial-ShareAlike (CC BY-NC-SA) (c)2013-2026, Sveinn Valfells and Jon Helgi Egilsson. 
 
 # Acknowledgements
 
