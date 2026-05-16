@@ -66,7 +66,7 @@ Reference market data:
 | S | 164,250 BTC/yr (3.125 BTC/block × 52,560 blocks/yr) |
 | F | 1,095 BTC/yr (~3 BTC/day, on-chain data May 2026) |
 | $h_0$ | 960,000 PHa (= 960 EH/s, midpoint of 935–994 EH/s per CoinWarz/Minerstat May 2026) |
-| T | 3 yr |
+| T | 3 yr (confirmed as standard ASIC useful life by Riot Platforms, Marathon Digital, Cipher Digital per CoinShares Q1 2026) |
 
 Derived composite values:
 

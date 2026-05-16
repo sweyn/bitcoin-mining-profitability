@@ -24,6 +24,8 @@ The reference parameters in `miningReferenceCalc.py` and `MiningProfitability.ip
 
 | NRE (facility setup) | \$8M | \$8.5M | Midpoint of \$700K–\$1M/MW × 10 MW reference facility per CoinShares Q1 2026; 10 MW ≈ 741 PHa at 13.5 J/TH |
 
+| Amortization (T) | 3 yr | 3 yr | Confirmed as industry standard ASIC useful life by Riot Platforms, Marathon Digital, and Cipher Digital per CoinShares Q1 2026; value unchanged |
+
 UTZ was left unchanged as a site-specific parameter.
 
 ## Derived composite values
