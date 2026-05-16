@@ -5,6 +5,10 @@ This repository contains the code used to model Bitcoin mining profitability as 
 
 ![Bitcoin mining profit function](plots/economics-notebook.png)
 
+# Requirements
+
+Python 3
+
 # Where to start?
 
 Start with the notebook MiningProfitability.ipynb at:
