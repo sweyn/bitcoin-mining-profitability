@@ -50,7 +50,7 @@ Reference technology data (modern ASIC hardware):
 
 | Parameter | Value |
 |-----------|-------|
-| CLC | 50 \$/kW/mo → 0.6 \$/W/yr |
+| CLC | 40 \$/kW/mo → 0.48 \$/W/yr (~\$0.055/kWh competitive industrial rate per OneMiners/D-Central May 2026) |
 | INV | 18,000 \$/PHa (~\$18/TH, Bitmain S21 XP per HashrateIndex May 2026) |
 | POW | 13,500 W/PHa (13.5 J/TH, Bitmain S21 XP) |
 | PUE | 1.03 |
@@ -71,25 +71,28 @@ Derived composite values:
 
 | Symbol | Value |
 |--------|-------|
-| C | 8,343 \$/PHa/yr |
-| D | 14,343 \$/PHa/yr |
+| C | 6,674 \$/PHa/yr |
+| D | 12,674 \$/PHa/yr |
 | R | 12,896,781,031 \$/yr |
 
 Cross-check results:
 
 | Quantity | Analytical | Repo code | Match |
 |----------|-----------|-----------|-------|
-| $h^*$ | 929,086.7797 PHa | 929,086.7797 PHa | ✓ |
-| $h_{CAP}$ | 1,545,820.5718 PHa | 1,545,820.5718 PHa | ✓ |
-| $h_{BE}^{Upper}$ | 956,919.2968 PHa (< $h_0$) | NaN | ✓ |
-| $h_{BE}^{Lower}$ | 902,063.7865 PHa (< $h_0$) | NaN | ✓ |
+| $h^*$ | 988,354.1155 PHa | 988,354.1155 PHa | ✓ |
+| $h_{CAP}$ | 1,932,275.7148 PHa | 1,932,275.7148 PHa | ✓ |
+| $h_{BE}^{Upper}$ | 1,013,564.4675 PHa | 1,013,564.4675 PHa | ✓ |
+| $h_{BE}^{Lower}$ | 963,770.8197 PHa | 963,770.8197 PHa | ✓ |
 
-Both breakeven hashrates fall below the current network hashrate $h_0 = 960{,}000$ PHa, so the code correctly returns NaN — no additional deployment is profitable at these market conditions. Since $h^* < h_0$, the optimal incremental deployment is $X = 0$.
+With competitive electricity ($40/kW/mo), $h^* = 988{,}354$ PHa $> h_0 = 960{,}000$ PHa, so there is a profitable deployment window $X \in [3{,}771,\ 53{,}564]$ PHa. Both breakeven hashrates exceed $h_0$ and are returned by the code.
 
 Profit at key points:
 
 | Point | $\pi$ (\$/yr) |
 |-------|--------------|
+| $X = X^*$ (maximum, +28,354 PHa) | 7,947,560.67 |
+| $X = X_{BE}^{Upper}$ (+53,564 PHa) | ≈ 0 |
+| $X = X_{BE}^{Lower}$ (+3,771 PHa) | ≈ 0 |
 | $X = 0$ (no capacity added) | −2,666,666.67 |
 
 All formulas in the repository are consistent with the analytical derivation.

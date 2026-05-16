@@ -19,30 +19,31 @@ The reference parameters in `miningReferenceCalc.py` and `MiningProfitability.ip
 |-----------|-----------|----------------|--------|
 | INV (hardware cost) | 500,000 \$/PHa (~\$500/TH) | 18,000 \$/PHa (~\$18/TH) | Bitmain S21 XP per HashrateIndex May 2026; ~28× cheaper per unit hashrate |
 | POW (power draw) | 100,000 W/PHa (100 J/TH) | 13,500 W/PHa (13.5 J/TH) | Bitmain S21 XP; ~7.4× more energy-efficient |
+| CLC (electricity) | 50 \$/kW/mo (0.068 \$/kWh) | 40 \$/kW/mo (0.055 \$/kWh) | Competitive industrial rate per OneMiners/D-Central May 2026; profitable threshold is ~\$0.04–0.06/kWh |
 
-CLC, PUE, UTZ, and NRE were left unchanged as site-specific or fixed costs.
+PUE, UTZ, and NRE were left unchanged as site-specific or fixed costs.
 
 ## Derived composite values
 
 | Symbol | 2016 | May 2026 |
 |--------|------|----------|
-| C (opex/PHa/yr) | 61,800 \$/PHa/yr | 8,343 \$/PHa/yr |
-| D (total cost/PHa/yr) | 228,467 \$/PHa/yr | 14,343 \$/PHa/yr |
+| C (opex/PHa/yr) | 61,800 \$/PHa/yr | 6,674 \$/PHa/yr |
+| D (total cost/PHa/yr) | 228,467 \$/PHa/yr | 12,674 \$/PHa/yr |
 | R (total market revenue/yr) | 329 M\$/yr | 12.9 B\$/yr |
 
 ## Model output with updated parameters
 
 | Quantity | 2016 result | May 2026 result |
 |----------|------------|-----------------|
-| h* (optimal total hashrate) | 759 PHa | 929,087 PHa (929 EH/s) |
-| h_CAP (opex breakeven) | 5,324 PHa | 1,545,821 PHa (1,546 EH/s) |
-| h_BE Upper | 1,424 PHa | NaN (below h₀) |
-| h_BE Lower | 405 PHa | NaN (below h₀) |
+| h* (optimal total hashrate) | 759 PHa | 988,354 PHa (988 EH/s) |
+| h_CAP (opex breakeven) | 5,324 PHa | 1,932,276 PHa (1,932 EH/s) |
+| h_BE Upper | 1,424 PHa | 1,013,564 PHa (1,014 EH/s) |
+| h_BE Lower | 405 PHa | 963,771 PHa (964 EH/s) |
 
 ## Key finding
 
-With current parameters, the analytical optimum h* ≈ 929 EH/s falls below the current network hashrate h₀ = 960 EH/s. This means:
+With current parameters, the analytical optimum h* ≈ 988 EH/s exceeds the current network hashrate h₀ = 960 EH/s, so there is a profitable deployment window. This means:
 
-- The breakeven hashrates both lie below h₀, so the code correctly returns NaN for both — no incremental deployment is profitable.
-- The optimal strategy for a marginal miner is X = 0 (no new capacity), yielding π = −$2.67M/yr from fixed NRE costs alone.
-- The network is operating near the equilibrium point where competitive pressure has driven hashrate to the edge of marginal profitability — consistent with the difficult mining environment reported in early 2026.
+- A miner with access to competitive electricity (~$0.055/kWh) can profitably add capacity in the range X ∈ [3,771, 53,564] PHa (≈ 4–54 EH/s).
+- The optimal incremental deployment is X* ≈ 28,354 PHa (≈ 28 EH/s), yielding peak profit of ~$7.9M/yr.
+- At higher electricity costs (above ~$0.068/kWh, the original $50/kW/mo assumption), h* falls below h₀ and no new deployment is profitable — electricity cost is the key swing variable at current market conditions.
