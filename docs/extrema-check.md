@@ -51,6 +51,7 @@ Reference technology data (modern ASIC hardware):
 | Parameter | Value |
 |-----------|-------|
 | CLC | 40 \$/kW/mo → 0.48 \$/W/yr (~\$0.055/kWh competitive industrial rate per OneMiners/D-Central May 2026) |
+| PUE | 1.10 (efficient air-cooled facility; industry avg 1.18, immersion 1.02–1.06 per CCAF/CoinShares Q1 2026) |
 | INV | 18,000 \$/PHa (~\$18/TH, Bitmain S21 XP per HashrateIndex May 2026) |
 | POW | 13,500 W/PHa (13.5 J/TH, Bitmain S21 XP) |
 | PUE | 1.03 |
@@ -71,28 +72,28 @@ Derived composite values:
 
 | Symbol | Value |
 |--------|-------|
-| C | 6,674 \$/PHa/yr |
-| D | 12,674 \$/PHa/yr |
+| C | 7,128 \$/PHa/yr |
+| D | 13,128 \$/PHa/yr |
 | R | 12,896,781,031 \$/yr |
 
 Cross-check results:
 
 | Quantity | Analytical | Repo code | Match |
 |----------|-----------|-----------|-------|
-| $h^*$ | 988,354.1155 PHa | 988,354.1155 PHa | ✓ |
-| $h_{CAP}$ | 1,932,275.7148 PHa | 1,932,275.7148 PHa | ✓ |
-| $h_{BE}^{Upper}$ | 1,013,564.4675 PHa | 1,013,564.4675 PHa | ✓ |
-| $h_{BE}^{Lower}$ | 963,770.8197 PHa | 963,770.8197 PHa | ✓ |
+| $h^*$ | 971,129.1617 PHa | 971,129.1617 PHa | ✓ |
+| $h_{CAP}$ | 1,809,312.7148 PHa | 1,809,312.7148 PHa | ✓ |
+| $h_{BE}^{Upper}$ | NaN (disc < 0) | NaN | ✓ |
+| $h_{BE}^{Lower}$ | NaN (disc < 0) | NaN | ✓ |
 
-With competitive electricity ($40/kW/mo), $h^* = 988{,}354$ PHa $> h_0 = 960{,}000$ PHa, so there is a profitable deployment window $X \in [3{,}771,\ 53{,}564]$ PHa. Both breakeven hashrates exceed $h_0$ and are returned by the code.
+Although $h^* = 971{,}129$ PHa $> h_0 = 960{,}000$ PHa, the profit at $X^*$ is negative ($-972{,}906$/yr), so the profit parabola never crosses zero. The discriminant of the breakeven quadratic is negative and the code correctly returns NaN for both breakeven hashrates. The least-loss strategy is to deploy $X^* \approx 11{,}129$ PHa of additional capacity; not deploying ($X = 0$) is worse.
+
+This reflects a key finding: at PUE = 1.10 (air-cooled) and current market conditions, even the optimal deployment is unprofitable. Only facilities achieving immersion-cooled PUE ($\approx$ 1.03) can break even with these hardware and electricity parameters.
 
 Profit at key points:
 
 | Point | $\pi$ (\$/yr) |
 |-------|--------------|
-| $X = X^*$ (maximum, +28,354 PHa) | 7,947,560.67 |
-| $X = X_{BE}^{Upper}$ (+53,564 PHa) | ≈ 0 |
-| $X = X_{BE}^{Lower}$ (+3,771 PHa) | ≈ 0 |
-| $X = 0$ (no capacity added) | −2,666,666.67 |
+| $X = X^*$ (minimum loss, +11,129 PHa) | −972,906 |
+| $X = 0$ (no capacity added) | −2,666,667 |
 
 All formulas in the repository are consistent with the analytical derivation.
