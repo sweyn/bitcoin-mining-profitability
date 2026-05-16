@@ -3,7 +3,7 @@ import numpy as np
 
 refTechData = [50.0 * 12 / 1000.0, 20000, 15000, 1.03, 0.99999, 8.0*1e6] # CLC ($/kW/m), INV ($/PHa, ~$20/TH modern ASIC), POW (W/PHa, ~15 J/TH modern ASIC), PUE (dimensionless), UTZ (dimensionless), NRE ($)
 
-refMktData = [80000, 164250, 3*365, 1000000, 3] # BTC Price ($), Annual supply (BTC/yr at 3.125 BTC/block), Annual fees (BTC/yr, ~3 BTC/day on-chain May 2026), Network hashrate (PHa, ~1000 EH/s), Amortization (years)
+refMktData = [80000, 164250, 3*365, 960000, 3] # BTC Price ($), Annual supply (BTC/yr at 3.125 BTC/block), Annual fees (BTC/yr, ~3 BTC/day on-chain May 2026), Network hashrate (PHa, 935-994 EH/s per CoinWarz/Minerstat May 2026), Amortization (years)
 
 def calcHashrates(refTechData, refMktData) : 
     """ Calculates hCAP, hSTAR, hBE_U/L, T """

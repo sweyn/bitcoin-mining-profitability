@@ -64,7 +64,7 @@ Reference market data:
 | B | \$80,000/BTC |
 | S | 164,250 BTC/yr (3.125 BTC/block × 52,560 blocks/yr) |
 | F | 1,095 BTC/yr (~3 BTC/day, on-chain data May 2026) |
-| $h_0$ | 1,000,000 PHa (= 1,000 EH/s) |
+| $h_0$ | 960,000 PHa (= 960 EH/s, midpoint of 935–994 EH/s per CoinWarz/Minerstat May 2026) |
 | T | 3 yr |
 
 Derived composite values:
@@ -79,12 +79,12 @@ Cross-check results:
 
 | Quantity | Analytical | Repo code | Match |
 |----------|-----------|-----------|-------|
-| $h^*$ | 911,044.5422 PHa | 911,044.5422 PHa | ✓ |
+| $h^*$ | 892,637.7046 PHa | 892,637.7046 PHa | ✓ |
 | $h_{CAP}$ | 1,426,911.2971 PHa | 1,426,911.2971 PHa | ✓ |
-| $h_{BE}^{Upper}$ | 999,010.9181 PHa (< $h_0$) | NaN | ✓ |
-| $h_{BE}^{Lower}$ | 830,823.9109 PHa (< $h_0$) | NaN | ✓ |
+| $h_{BE}^{Upper}$ | 958,753.9799 PHa (< $h_0$) | NaN | ✓ |
+| $h_{BE}^{Lower}$ | 831,080.8490 PHa (< $h_0$) | NaN | ✓ |
 
-Both breakeven hashrates fall below the current network hashrate $h_0 = 1{,}000{,}000$ PHa, so the code correctly returns NaN — no additional deployment is profitable at these market conditions. Since $h^* < h_0$, the optimal incremental deployment is $X = 0$.
+Both breakeven hashrates fall below the current network hashrate $h_0 = 960{,}000$ PHa, so the code correctly returns NaN — no additional deployment is profitable at these market conditions. Since $h^* < h_0$, the optimal incremental deployment is $X = 0$.
 
 Profit at key points:
 
