@@ -19,6 +19,8 @@ If GitHub's notebook renderer shows an error, view it on nbviewer instead:
 
 https://nbviewer.org/urls/raw.githubusercontent.com/sweyn/bitcoin-mining-profitability/main/MiningProfitability.ipynb
 
+[![nbviewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](https://nbviewer.org/urls/raw.githubusercontent.com/sweyn/bitcoin-mining-profitability/main/MiningProfitability.ipynb)
+
 # Model review (May 2026)
 
 All reference parameters were refreshed to May 2026 market and industry data. With current inputs — BTC at $78K, network hashrate at 960 EH/s, Bitmain S21 XP hardware at 13.5 J/TH, competitive electricity at $0.055/kWh, PUE 1.10, and 95% utilization — the model places the optimal total hashrate h\* ≈ 947 EH/s, within ~1% of the observed network. This near-exact match reflects competitive equilibrium: miners have entered until marginal profit approaches zero, exactly as the model predicts.
