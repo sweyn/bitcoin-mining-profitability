@@ -15,9 +15,8 @@ Start with the notebook MiningProfitability.ipynb at:
 
 https://github.com/sweyn/bitcoin-mining-profitability/blob/main/MiningProfitability.ipynb
 
-If GitHub's notebook renderer shows an error, open it on nbviewer or Google Colab instead:
+If GitHub's notebook renderer shows an error, open it in Google Colab:
 
-[![nbviewer](https://raw.githubusercontent.com/jupyter/design/master/logos/Badges/nbviewer_badge.svg)](https://nbviewer.org/urls/raw.githubusercontent.com/sweyn/bitcoin-mining-profitability/main/MiningProfitability.ipynb)
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/sweyn/bitcoin-mining-profitability/blob/main/MiningProfitability.ipynb)
 
 # Model review (May 2026)
