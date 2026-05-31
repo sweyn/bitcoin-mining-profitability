@@ -76,3 +76,23 @@ With updated parameters, the model yields:
 For its intended purpose — giving a prospective miner an analytically tractable framework for capacity planning — the model remains genuinely useful. The functional form is economically sound, the equilibrium prediction is validated by current network data, and the closed-form solution makes sensitivity analysis straightforward.
 
 Its main gap is the absence of uncertainty quantification. A natural extension would be to run the model across a distribution of BTC price and hashrate scenarios (e.g. Monte Carlo over plausible price paths) to produce a probability of profitability rather than a binary yes/no at a single point estimate. Given that h\* and h₀ are currently within 1% of each other, small changes in any input parameter flip the profitability conclusion — which is precisely when a deterministic model is least reliable and a probabilistic one is most needed.
+
+---
+
+## Code review findings (May 2026)
+
+A code review was conducted following the parameter refresh. Nine findings were identified; all have been resolved (commit `4667fea`).
+
+| # | Location | Finding | Fix |
+|---|----------|---------|-----|
+| 1 | `MiningProfitability.ipynb` cell-2 | `hCAP`, `h*`, `hBE`, and `T_Implied` closed-form formulas omitted UTZ — a 5.3% error at UTZ=0.95 that gave the opposite profitability verdict when computed by hand | UTZ added to all four threshold formulas |
+| 2 | `MiningProfitability.ipynb` cell-2 | Reference parameter tables showed 2016 values (B=$250, h₀=400 PHa) while the code cell used 2026 values | Tables updated to May 2026 values |
+| 3 | `docs/market-data-update-summary.md` | R shown as 12.9 B\$/yr (old UTZ≈1.0 result) instead of the correct 12.252 B\$/yr | Corrected to 12.252 B\$/yr |
+| 4 | `miningReferenceCalc.py:54` | `print()` transposed `hSTAR` and `hBE_upper`, hidden because both hBE values are currently NaN | Order corrected to `hCAP, hSTAR, hBE_upper, hBE_lower` |
+| 5 | `docs/extrema-check.md:57` | Stale `\| PUE \| 1.03 \|` row left in parameter table after the PUE update; reader using it got C = 6,674 instead of 7,128 | Row removed |
+| 6 | `miningReferenceCalc.py:13` | `hSTAR` returned as 946,544 when less than h₀ = 960,000, implying X\* = −13,456 PHa (infeasible); inconsistent with `hBE` returning NaN for its infeasibility condition | `hSTAR` clamped to h₀ when the unconstrained optimum is below h₀; function now returns 960,000, signalling that X = 0 is optimal |
+| 7 | `miningReferenceCalc.py:2` | Dead `import numpy as np`; commented-out numpy block contained a syntax error | Import and broken comment removed |
+| 8 | `miningReferenceCalc.py:12` | `btc * utz * (sup + fee)` and `clc * poww * pue` each written 3–4 times across both functions | Extracted to named variables `R`, `c`, `inv_t` |
+| 9 | `miningReferenceCalc.py:18` | Discriminant `bb*bb - 4*aa*cc` evaluated twice in each function (guard + sqrt) | Extracted to `disc` |
+
+None of the fixes alter the model's numerical outputs. The analytical h\* (946,544 PHa) and the equilibrium prediction — h\* ≈ 947 EH/s vs observed h₀ = 960 EH/s, within ~1% — are unchanged. The change in finding 6 affects only what `calcHashrates()` returns to callers, not the underlying economics.
