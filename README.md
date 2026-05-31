@@ -29,9 +29,9 @@ A code review following the parameter refresh found and fixed nine bugs: closed-
 
 # Documentation
 
-- [docs/claude-review.md](docs/claude-review.md) — Full model review following May 2026 parameter refresh
+- [docs/claude-review.md](docs/claude-review.md) — Full model review following May 2026 parameter refresh, including code review findings and fix log
 - [docs/market-data-update-summary.md](docs/market-data-update-summary.md) — Summary of all parameter changes from 2016 to May 2026 values, with sources
-- [docs/extrema-check.md](docs/extrema-check.md) — Analytical derivation of h\*, h_CAP, and h_BE with numerical verification
+- [docs/extrema-check.md](docs/extrema-check.md) — Analytical derivation of h\*, h_CAP, and h_BE with numerical cross-check against the code
 
 # Administrative
 
