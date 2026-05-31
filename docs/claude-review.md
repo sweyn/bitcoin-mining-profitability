@@ -42,9 +42,10 @@ All parameters were updated from their 2016 values to current sourced data:
 
 With updated parameters, the model yields:
 
-- **h\* = 946,544 PHa (947 EH/s)**
-- **h₀ = 960,000 PHa (960 EH/s)**
-- **h\* < h₀**: optimal incremental deployment is X = 0; no new air-cooled capacity is profitable at current conditions
+- **h\* = 946,544 PHa (947 EH/s)** — unconstrained analytical optimum
+- **h₀ = 960,000 PHa (960 EH/s)** — observed network hashrate
+- **h\* < h₀**: optimal incremental deployment is X = 0; `calcHashrates()` returns h₀ as the constrained optimum
+- No new air-cooled capacity is profitable at current conditions
 - Profit at X = 0: **−$2.83M/yr** (fixed NRE cost only)
 
 ---
