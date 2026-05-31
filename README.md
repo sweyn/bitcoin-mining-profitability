@@ -17,7 +17,7 @@ https://github.com/sweyn/bitcoin-mining-profitability/blob/main/MiningProfitabil
 
 If GitHub's notebook renderer shows an error, view it on nbviewer instead:
 
-https://nbviewer.org/github/sweyn/bitcoin-mining-profitability/blob/main/MiningProfitability.ipynb
+https://nbviewer.org/urls/raw.githubusercontent.com/sweyn/bitcoin-mining-profitability/main/MiningProfitability.ipynb
 
 # Model review (May 2026)
 
