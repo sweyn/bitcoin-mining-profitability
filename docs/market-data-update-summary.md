@@ -21,11 +21,8 @@ The reference parameters in `miningReferenceCalc.py` and `MiningProfitability.ip
 | POW (power draw) | 100,000 W/PHa (100 J/TH) | 13,500 W/PHa (13.5 J/TH) | Bitmain S21 XP; ~7.4× more energy-efficient |
 | CLC (electricity) | 50 \$/kW/mo (0.068 \$/kWh) | 40 \$/kW/mo (0.055 \$/kWh) | Competitive industrial rate per OneMiners/D-Central May 2026; profitable threshold is ~\$0.04–0.06/kWh |
 | PUE | 1.03 | 1.10 | Efficient air-cooled facility; industry avg 1.18, immersion cooling 1.02–1.06 per CCAF/CoinShares Q1 2026 |
-
 | NRE (facility setup) | \$8M | \$8.5M | Midpoint of \$700K–\$1M/MW × 10 MW reference facility per CoinShares Q1 2026; 10 MW ≈ 741 PHa at 13.5 J/TH |
-
 | Amortization (T) | 3 yr | 3 yr | Confirmed as industry standard ASIC useful life by Riot Platforms, Marathon Digital, and Cipher Digital per CoinShares Q1 2026; value unchanged |
-
 | UTZ (utilization) | 0.99999 | 0.95 | Industry median 90–94% with curtailment; well-run modern facility 95–98% per CoinShares/HashrateIndex Q1 2026; Riot Platforms Q1 2025 ran at 87–88% |
 
 ## Derived composite values
@@ -40,7 +37,8 @@ The reference parameters in `miningReferenceCalc.py` and `MiningProfitability.ip
 
 | Quantity | 2016 result | May 2026 result |
 |----------|------------|-----------------|
-| h* (optimal total hashrate) | 759 PHa | 946,544 PHa (947 EH/s) |
+| h* (unconstrained optimum) | 759 PHa | 946,544 PHa (947 EH/s) |
+| h* (constrained, returned by code) | 759 PHa | 960,000 PHa = h₀ (X = 0 optimal) |
 | h_CAP (opex breakeven) | 5,324 PHa | 1,718,864 PHa (1,719 EH/s) |
 | h_BE Upper | 1,424 PHa | NaN (profit always negative) |
 | h_BE Lower | 405 PHa | NaN (profit always negative) |
