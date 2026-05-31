@@ -79,12 +79,13 @@ Cross-check results:
 
 | Quantity | Analytical | Repo code | Match |
 |----------|-----------|-----------|-------|
-| $h^*$ | 946,544.3549 PHa | 946,544.3549 PHa | ✓ |
+| $h^*$ (unconstrained) | 946,544.3549 PHa | — | — |
+| $h^*$ (constrained, returned) | $h_0$ = 960,000 PHa | 960,000.0000 PHa | ✓ |
 | $h_{CAP}$ | 1,718,864.2677 PHa | 1,718,864.2677 PHa | ✓ |
 | $h_{BE}^{Upper}$ | NaN (disc < 0) | NaN | ✓ |
 | $h_{BE}^{Lower}$ | NaN (disc < 0) | NaN | ✓ |
 
-With UTZ = 0.95, $h^* = 946{,}544$ PHa $< h_0 = 960{,}000$ PHa, so the optimal incremental deployment is $X = 0$. The discriminant is negative (profit is always negative for all $X \geq 0$) and the code correctly returns NaN for both breakeven hashrates.
+With UTZ = 0.95, the unconstrained optimum $h^* = 946{,}544$ PHa $< h_0 = 960{,}000$ PHa, so $X^* < 0$ — physically infeasible. The constrained optimum is $X = 0$. `calcHashrates()` detects this condition and returns $h_0$ rather than the infeasible unconstrained value, consistent with the NaN convention used for $h_{BE}$ when no profitable deployment exists. The discriminant is negative and the code correctly returns NaN for both breakeven hashrates.
 
 Profit at key points:
 
@@ -92,4 +93,4 @@ Profit at key points:
 |-------|--------------|
 | $X = 0$ (no capacity added) | −2,833,333 |
 
-All formulas in the repository are consistent with the analytical derivation.
+All formulas in the repository are consistent with the analytical derivation. The code change to $h^*$ (clamping to $h_0$) is an API convention fix — it does not alter the underlying economics or the equilibrium result.
