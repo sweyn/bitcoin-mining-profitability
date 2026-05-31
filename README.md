@@ -25,6 +25,8 @@ All reference parameters were refreshed to May 2026 market and industry data. Wi
 
 The model's functional form and core insight have held up well over a decade. Its principal limitation is that it is static and deterministic — it gives a point-in-time answer in a market where BTC price, fees, and hashrate are highly volatile. At current conditions h\* and h₀ are within 1% of each other, meaning small changes in any input flip the profitability conclusion. A probabilistic extension (e.g. Monte Carlo over price and hashrate scenarios) would be the most valuable next step.
 
+A code review following the parameter refresh found and fixed nine bugs: closed-form threshold formulas in the notebook were missing the UTZ utilization factor (5.3% error at UTZ=0.95), the notebook's reference tables still showed 2016 parameters, a stale PUE row in the extrema check produced wrong derived values, and the Python script had a transposed print statement and redundant computations. None of the fixes alter the model's numerical outputs. See [docs/claude-review.md](docs/claude-review.md) for the full findings table.
+
 # Documentation
 
 - [docs/claude-review.md](docs/claude-review.md) — Full model review following May 2026 parameter refresh
