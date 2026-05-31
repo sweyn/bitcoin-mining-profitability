@@ -54,7 +54,6 @@ Reference technology data (modern ASIC hardware):
 | PUE | 1.10 (efficient air-cooled facility; industry avg 1.18, immersion 1.02–1.06 per CCAF/CoinShares Q1 2026) |
 | INV | 18,000 \$/PHa (~\$18/TH, Bitmain S21 XP per HashrateIndex May 2026) |
 | POW | 13,500 W/PHa (13.5 J/TH, Bitmain S21 XP) |
-| PUE | 1.03 |
 | UTZ | 0.95 (industry median 90–94% with curtailment; well-run modern facility 95–98% per CoinShares/HashrateIndex Q1 2026) |
 | NRE | \$8.5M (midpoint of \$700K–\$1M/MW × 10 MW reference facility per CoinShares Q1 2026) |
 

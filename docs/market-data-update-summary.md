@@ -34,7 +34,7 @@ The reference parameters in `miningReferenceCalc.py` and `MiningProfitability.ip
 |--------|------|----------|
 | C (opex/PHa/yr) | 61,800 \$/PHa/yr | 7,128 \$/PHa/yr |
 | D (total cost/PHa/yr) | 228,467 \$/PHa/yr | 13,128 \$/PHa/yr |
-| R (total market revenue/yr) | 329 M\$/yr | 12.9 B\$/yr |
+| R (total market revenue/yr) | 329 M\$/yr | 12.252 B\$/yr |
 
 ## Model output with updated parameters
 
