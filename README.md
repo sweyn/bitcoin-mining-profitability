@@ -13,11 +13,11 @@ Python 3
 
 Start with the notebook MiningProfitability.ipynb at:
 
-https://github.com/sweyn/bitcoin-mining-profitability/blob/master/MiningProfitability.ipynb
+https://github.com/sweyn/bitcoin-mining-profitability/blob/main/MiningProfitability.ipynb
 
 If GitHub's notebook renderer shows an error, view it on nbviewer instead:
 
-https://nbviewer.org/github/sweyn/bitcoin-mining-profitability/blob/master/MiningProfitability.ipynb
+https://nbviewer.org/github/sweyn/bitcoin-mining-profitability/blob/main/MiningProfitability.ipynb
 
 # Model review (May 2026)
 
