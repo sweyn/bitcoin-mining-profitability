@@ -34,10 +34,11 @@ def plotReference(refTechData, refMktData, path):
 
     marks = {r"$h_0$": h0, r"$h^*$": hSTAR, r"$h_{BE}^{Lower}$": hBE_lower,
              r"$h_{BE}^{Upper}$": hBE_upper, r"$h_{CAP}$": hCAP}
-    for label, x in marks.items():
-        if np.isfinite(x) and (label == r"$h_0$" or x > h0):
-            ax.axvline(x / 1000, color="grey", lw=0.8)
-            ax.annotate(label, (x / 1000, 0.02), xycoords=("data", "axes fraction"))
+    shown = [(label, x) for label, x in marks.items()
+             if np.isfinite(x) and (label == r"$h_0$" or x > h0)]
+    for i, (label, x) in enumerate(shown):
+        ax.axvline(x / 1000, color="grey", lw=0.8)
+        ax.annotate(label, (x / 1000, 0.02 + 0.05 * (i % 2)), xycoords=("data", "axes fraction"))
 
     ax.set_xlabel("Network hashrate (EH/s)")
     ax.yaxis.set_major_formatter(lambda y, _: f"{'-' if y < 0 else ''}\\${abs(y) / 1e9:,.1f}B")

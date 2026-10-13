@@ -25,14 +25,19 @@ def profit(h, tech, market):
 
 def test_reference_values():
     hCAP, hSTAR, hBE_upper, hBE_lower = calcHashrates(refTechData, refMktData)
-    assert hCAP == pytest.approx(1_718_864.2677)
-    assert hSTAR == refMktData[3]  # unconstrained optimum 946,544 < h0, clamped
-    assert math.isnan(hBE_upper) and math.isnan(hBE_lower)
-    assert calcImpliedT(refTechData, refMktData) == pytest.approx(3.41344, rel=1e-5)
+    assert hCAP == pytest.approx(1_836_158.5846)
+    assert hSTAR == pytest.approx(986_217.3743)
+    assert math.isnan(hBE_upper) and math.isnan(hBE_lower)  # NRE/T exceeds the marginal gain
+    assert calcImpliedT(refTechData, refMktData) == pytest.approx(3.17866, rel=1e-5)
+
+
+def test_hSTAR_clamped_to_h0_when_unconstrained_optimum_is_below_it():
+    _, hSTAR, _, _ = calcHashrates(refTechData, mkt(btc=70_000))
+    assert hSTAR == refMktData[3]
 
 
 def test_profitable_case_is_consistent_with_profit_function():
-    market = mkt(btc=85_000)
+    market = mkt(btc=100_000)
     _, hSTAR, hBE_upper, hBE_lower = calcHashrates(refTechData, market)
     assert market[3] < hBE_lower < hSTAR < hBE_upper
     scale = profit(hSTAR, refTechData, market)
@@ -45,9 +50,9 @@ def test_profitable_case_is_consistent_with_profit_function():
 
 
 def test_breakevens_merge_at_implied_T():
-    market = mkt(btc=85_000)
+    market = mkt(btc=100_000)
     T = calcImpliedT(refTechData, market)
-    _, _, upper, lower = calcHashrates(refTechData, mkt(btc=85_000, amz=T * 1.000001))
+    _, _, upper, lower = calcHashrates(refTechData, mkt(btc=100_000, amz=T * 1.000001))
     assert upper == pytest.approx(lower, rel=1e-3)
 
 
