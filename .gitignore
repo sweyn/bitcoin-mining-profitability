@@ -39,4 +39,8 @@
 ##########################
 *.pyc
 
+# Jupyter checkpoints #
+########################
+.ipynb_checkpoints/
+
 
