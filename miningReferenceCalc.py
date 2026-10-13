@@ -46,8 +46,9 @@ def calcImpliedT(refTechData, refMktData):
     else:
         return float('NaN')
 
-hCAP, hSTAR, hBE_upper, hBE_lower = calcHashrates(refTechData, refMktData)
-impliedT = calcImpliedT(refTechData, refMktData)
+if __name__ == "__main__":
+    hCAP, hSTAR, hBE_upper, hBE_lower = calcHashrates(refTechData, refMktData)
+    impliedT = calcImpliedT(refTechData, refMktData)
 
-print(hCAP, hSTAR, hBE_upper, hBE_lower)
-print(impliedT)
+    print(hCAP, hSTAR, hBE_upper, hBE_lower)
+    print(impliedT)
