@@ -41,6 +41,7 @@ def plotReference(refTechData, refMktData, path):
         ax.annotate(label, (x / 1000, 0.02 + 0.05 * (i % 2)), xycoords=("data", "axes fraction"))
 
     ax.set_xlabel("Network hashrate (EH/s)")
+    ax.set_ylabel("USD per year")
     ax.yaxis.set_major_formatter(lambda y, _: f"{'-' if y < 0 else ''}\\${abs(y) / 1e9:,.1f}B")
     ax.set_title(f"Reference case at \\${btc:,.0f}/BTC, {h0 / 1000:,.0f} EH/s, and $T={amz}$")
     ax.legend(loc="upper left")
