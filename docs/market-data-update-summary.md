@@ -47,6 +47,6 @@ The reference parameters in `miningReferenceCalc.py` and `MiningProfitability.ip
 
 With current parameters, h* ≈ 947 EH/s < h₀ = 960 EH/s and the profit parabola never crosses zero — no deployment size is profitable. This means:
 
-- The optimal strategy is X = 0 (no new capacity); profit = −$2.83M/yr from fixed NRE costs.
+- The optimal strategy is X = 0 (no new capacity). The formula gives π(0) = −NRE/T = −$2.83M/yr, but not building avoids NRE, so the real alternative is π = 0.
 - UTZ = 0.95 reflects realistic curtailment and downtime: Riot Platforms ran at 87–88% in Q1 2025; industry median is 90–94%. The previous 0.99999 was unachievable in practice.
 - **Electricity cost, PUE, and utilization are jointly the key swing variables.** Operations combining immersion-cooled PUE (≈ 1.02–1.06), sub-$0.05/kWh power, and minimal curtailment (UTZ ≥ 0.97) can still be profitable; air-cooled operations at $0.055/kWh with realistic 95% uptime are currently at a loss — consistent with industry reports of hashprice at all-time lows in early 2026.

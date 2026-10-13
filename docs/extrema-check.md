@@ -91,6 +91,6 @@ Profit at key points:
 
 | Point | $\pi$ (\$/yr) |
 |-------|--------------|
-| $X = 0$ (no capacity added) | −2,833,333 |
+| $X = 0$ (no capacity added) | −2,833,333 (= −NRE/T; not building avoids NRE, so the real alternative is π = 0) |
 
 All formulas in the repository are consistent with the analytical derivation. The code change to $h^*$ (clamping to $h_0$) is an API convention fix — it does not alter the underlying economics or the equilibrium result.

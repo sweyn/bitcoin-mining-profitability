@@ -46,7 +46,7 @@ With updated parameters, the model yields:
 - **h₀ = 960,000 PHa (960 EH/s)** — observed network hashrate
 - **h\* < h₀**: optimal incremental deployment is X = 0; `calcHashrates()` returns h₀ as the constrained optimum
 - No new air-cooled capacity is profitable at current conditions
-- Profit at X = 0: **−$2.83M/yr** (fixed NRE cost only)
+- Profit at X = 0: **−$2.83M/yr** by formula (π(0) = −NRE/T); not building avoids NRE, so the real alternative is π = 0
 
 ---
 
@@ -54,7 +54,7 @@ With updated parameters, the model yields:
 
 ### Strengths
 
-**The equilibrium prediction holds.** The most striking result of the refresh is that h\* ≈ 947 EH/s while the actual network sits at h₀ = 960 EH/s — within ~1% — using independently sourced parameters. This is not a coincidence. In a competitive mining market, operators enter until marginal profit approaches zero, driving h₀ toward h\*. The model predicts this convergence correctly, and a decade of network growth confirms it. The structural insight — that the hyperbolic revenue function combined with linear costs produces a well-defined competitive equilibrium — has aged well.
+**The data are consistent with equilibrium.** With free entry, miners enter until profit reaches zero, where hashprice R/h₀ equals full unit cost D. The model puts this zero-profit network size R/D at 933 EH/s, 2.9% below the observed h₀ = 960 EH/s. Comparing h\* = 947 EH/s with h₀ shows only about half that gap, because h\* is the geometric mean of h₀ and R/D. The gap is smaller than the spread in the inputs (sources put h₀ at 935–994 EH/s), so the match is consistent with equilibrium but does not test it precisely. The structural insight — that the hyperbolic revenue function combined with linear costs produces a well-defined competitive equilibrium — has aged well.
 
 **It correctly identifies the swing variables.** The sensitivity implicit in the parameter refresh is informative. Moving PUE from 1.03 (immersion-cooled) to 1.10 (air-cooled) tips the model from marginally profitable to unprofitable. Moving UTZ from 0.99999 to 0.95 reduces R by ~5% and pushes h\* another ~25 EH/s below h₀. These are exactly the variables industry analysts identify as decisive in the current low-hashprice environment, and the model captures their influence correctly.
 
@@ -74,9 +74,9 @@ With updated parameters, the model yields:
 
 ### Overall verdict
 
-For its intended purpose — giving a prospective miner an analytically tractable framework for capacity planning — the model remains genuinely useful. The functional form is economically sound, the equilibrium prediction is validated by current network data, and the closed-form solution makes sensitivity analysis straightforward.
+For its intended purpose — giving a prospective miner an analytically tractable framework for capacity planning — the model remains genuinely useful. The functional form is economically sound, current network data are consistent with the equilibrium prediction, and the closed-form solution makes sensitivity analysis straightforward.
 
-Its main gap is the absence of uncertainty quantification. A natural extension would be to run the model across a distribution of BTC price and hashrate scenarios (e.g. Monte Carlo over plausible price paths) to produce a probability of profitability rather than a binary yes/no at a single point estimate. Given that h\* and h₀ are currently within 1% of each other, small changes in any input parameter flip the profitability conclusion — which is precisely when a deterministic model is least reliable and a probabilistic one is most needed.
+Its main gap is the absence of uncertainty quantification. A natural extension would be to run the model across a distribution of BTC price and hashrate scenarios (e.g. Monte Carlo over plausible price paths) to produce a probability of profitability rather than a binary yes/no at a single point estimate. Given that h\* and h₀ are currently within 1.4% of each other, small changes in any input parameter flip the profitability conclusion — which is precisely when a deterministic model is least reliable and a probabilistic one is most needed.
 
 ---
 
@@ -96,4 +96,4 @@ A code review was conducted following the parameter refresh. Nine findings were 
 | 8 | `miningReferenceCalc.py:12` | `btc * utz * (sup + fee)` and `clc * poww * pue` each written 3–4 times across both functions | Extracted to named variables `R`, `c`, `inv_t` |
 | 9 | `miningReferenceCalc.py:18` | Discriminant `bb*bb - 4*aa*cc` evaluated twice in each function (guard + sqrt) | Extracted to `disc` |
 
-None of the fixes alter the model's numerical outputs. The analytical h\* (946,544 PHa) and the equilibrium prediction — h\* ≈ 947 EH/s vs observed h₀ = 960 EH/s, within ~1% — are unchanged. The change in finding 6 affects only what `calcHashrates()` returns to callers, not the underlying economics.
+None of the fixes alter the model's numerical outputs. The analytical h\* (946,544 PHa) and the zero-profit network size R/D (933,277 PHa, 2.9% below h₀) are unchanged. The change in finding 6 affects only what `calcHashrates()` returns to callers, not the underlying economics.
