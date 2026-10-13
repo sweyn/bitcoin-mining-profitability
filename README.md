@@ -33,6 +33,7 @@ A code review following the parameter refresh found and fixed nine bugs: closed-
 
 # Documentation
 
+- [docs/open-questions.md](docs/open-questions.md) — Profitability of new vs. existing capacity and model updates to explore (October 2026)
 - [docs/october-2026-update.md](docs/october-2026-update.md) — October 2026 refresh of BTC price, hashrate, fees and hardware cost, with sources and sensitivity to hashrate
 - [docs/claude-review.md](docs/claude-review.md) — Full model review following May 2026 parameter refresh, including code review findings and fix log
 - [docs/market-data-update-summary.md](docs/market-data-update-summary.md) — Summary of all parameter changes from 2016 to May 2026 values, with sources
