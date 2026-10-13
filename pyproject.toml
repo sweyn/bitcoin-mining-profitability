@@ -1,0 +1,11 @@
+[project]
+name = "bitcoin-mining-profitability"
+version = "0.1.0"
+requires-python = ">=3.11"
+dependencies = ["matplotlib", "numpy"]
+
+[dependency-groups]
+dev = ["pytest", "nbconvert", "ipykernel"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]

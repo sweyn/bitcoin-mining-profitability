@@ -7,7 +7,7 @@ This repository contains the code used to model Bitcoin mining profitability as 
 
 # Requirements
 
-Python 3
+Python 3.11+ and [uv](https://docs.astral.sh/uv/). Install with `uv sync`, run tests with `uv run pytest`, and regenerate the reference plot with `uv run python plotReference.py`.
 
 # Where to start?
 
