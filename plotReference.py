@@ -45,6 +45,22 @@ def plotReference(refTechData, refMktData, path):
     ax.yaxis.set_major_formatter(lambda y, _: f"{'-' if y < 0 else ''}\\${abs(y) / 1e9:,.1f}B")
     ax.set_title(f"Reference case at \\${btc:,.0f}/BTC, {h0 / 1000:,.0f} EH/s, and $T={amz}$")
     ax.legend(loc="upper left")
+
+    zoom_h = np.linspace(h0, h0 + 30_000, 300)
+    zr, zo, zc = profitTerms(zoom_h, refTechData, refMktData)
+    zoom_profit = zr - zo - zc
+    ax.set_ylim(top=1.45 * (opex + capex).max())
+    inset = ax.inset_axes([0.33, 0.69, 0.4, 0.25])
+    inset.plot(zoom_h / 1000, zoom_profit, "k:")
+    inset.axhline(0, color="grey", lw=0.8)
+    for label, x in shown:
+        if x <= zoom_h[-1]:
+            inset.axvline(x / 1000, color="grey", lw=0.8)
+    inset.set_xlim(zoom_h[0] / 1000, zoom_h[-1] / 1000)
+    inset.set_ylim(1.1 * zoom_profit.min(), 0.1 * abs(zoom_profit.min()))
+    inset.yaxis.set_major_formatter(lambda y, _: f"{'-' if y < 0 else ''}\\${abs(y) / 1e6:,.0f}M")
+    inset.tick_params(labelsize=8)
+    inset.set_title(f"Profit, {zoom_h[0] / 1000:,.0f}–{zoom_h[-1] / 1000:,.0f} EH/s", fontsize=9)
     fig.savefig(path, dpi=100, bbox_inches="tight")
 
 
