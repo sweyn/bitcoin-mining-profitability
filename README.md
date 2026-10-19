@@ -21,7 +21,7 @@ If GitHub's notebook renderer shows an error, open it in Google Colab:
 
 # Model update (October 2026)
 
-BTC price, network hashrate, fees and hardware cost were refreshed to October 2026: BTC at $83.4K, hashrate at 985 EH/s, fees at 2.58 BTC/day and hardware at $18.38/TH. The other inputs keep their May 2026 values. The optimum h\* (986 EH/s) now sits just above h₀, but the margin it earns does not cover the fixed NRE charge, so no new capacity is profitable at a 3-year amortization (T_Implied = 3.18 years). **The zero-profit network size R/D is 987 EH/s, 0.2% above the observed network.** At the low end of the hashrate sources (950 EH/s), new capacity turns profitable. See [docs/october-2026-update.md](docs/october-2026-update.md).
+BTC price, network hashrate, fees and hardware cost were refreshed to October 2026: BTC at $83.4K, hashrate at 985 EH/s, fees at 2.58 BTC/day and hardware at $18.38/TH. The other inputs keep their May 2026 values. The optimum h\* (986 EH/s) now sits just above h₀, but the margin it earns does not cover the fixed NRE charge, so no new capacity is profitable at a 3-year amortization (T_Implied = 3.18 years). ***The zero-profit network size R/D is 987 EH/s, 0.2% above the observed network.*** At the low end of the hashrate sources (950 EH/s), new capacity turns profitable. See [docs/october-2026-update.md](docs/october-2026-update.md).
 
 # Model review (May 2026)
 
